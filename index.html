@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto API Google Books</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Libro a la Estantería</h1>
+        <form id="searchForm">
+            <label for="searchQuery">Buscar Libro:</label>
+            <input type="text" id="searchQuery" name="searchQuery" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="searchResults"></div>
+        
+        <form id="addForm" style="display:none;">
+            <label for="volumeId">ID del Volumen:</label>
+            <select id="volumeId" name="volumeId" required></select>
+            <label for="bookshelfId">ID de la Estantería:</label>
+            <select id="bookshelfId" name="bookshelfId" required></select>
+            <button type="submit">Agregar</button>
+        </form>
+        
+        <div id="response"></div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
