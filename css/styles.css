@@ -1,32 +1,42 @@
-
-
 body {
-/* background-color: #76a9e0; */
-background-image: url("../img/bg-book2.jpg");
-background-color: #017199;
-/* Full height */
-height: 100%;
-/* Center and scale the image nicely */
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
+    background-image: url("../img/png-transparent-books-illustration-book-book-rectangle-presentation-desktop-wallpaper-thumbnail.png");
+    background-color: rgba(255, 255, 255, 0.9); /* Ajusta el último valor para cambiar la opacidad */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: screen; /* Usa el modo de fusión "screen" para lograr la transparencia */
+    font-family: 'Lato', sans-serif;
+  }
+  .center {
+    margin: auto;
+    margin-top: 200px;
+  }
+  
+  #header {
+    font-family: 'Righteous', sans-serif;
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-family: 'Righteous', sans-serif;
+  }
+  
+  .book-list, .comparison-tool, .reading-list {
+    margin-top: 50px;
+    visibility: hidden;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
 
-.center {
-margin: auto;
-margin-top: 200px;
-}
+      .book-image {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-#header {
-font-family: 'Righteous', sans-serif;
-font-size: 3rem;
-}
-
-h2 {
-font-family: 'Righteous', sans-serif;
-}
-
-.book-list {
-margin-top: 50px;
-visibility: hidden;
-}
+    .book-image:hover {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }

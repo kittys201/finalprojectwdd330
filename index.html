@@ -1,39 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Finder</title>
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-      <div id="title" class="center">
-        <h1 id="header" class="text-center mt-5">Book Finder</h1>
-        <div class="row">
-          <div id="input" class="input-group mx-auto col-lg-6 col-md-8 col-sm-12">
-            <input id="search-box" type="text" class="form-control" placeholder="Search Books!...">
-            <button id="search" class="btn btn-primary" onclick="">Search</button>
+        <h1 class="text-center" id="title">Google Books API</h1>
+        <div id="previous-searches">
+        <button id="clear-searches">✖</button>
         </div>
+        <div class="input-group mb-3">
+            <input type="text" id="search-box" class="form-control" placeholder="Search for books">
+            <div class="input-group-append">
+                <button id="search" class="btn btn-primary">Search</button>
+            </div>
         </div>
-      </div>
-      <div class="book-list" >
-        <h2 class="text-center">Search Result</h2>
-        <div id="list-output" class="">
-          <div class="row">
-            <!-- card  -->
+        <div id="list-output" class="book-list row"></div>
 
-          </div>
+        <h2 class="mt-5">Reading List</h2>
+        <div id="reading-list-output" class="row"></div>
 
+        <h2 class="mt-5">Compare Books</h2>
+        <div class="form-group">
+            <label for="compare-book-1">Select Book 1:</label>
+            <select id="compare-book-1" class="form-control"></select>
         </div>
-      </div>
+        <div class="form-group">
+            <label for="compare-book-2">Select Book 2:</label>
+            <select id="compare-book-2" class="form-control"></select>
+        </div>
+        <button id="compare-books" class="btn btn-primary">Compare</button>
+        <div id="comparison-output" class="mt-4"></div>
     </div>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/index.js"></script>
-  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
 </html>

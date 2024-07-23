@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <button id="go-back">Go back to search</button>
+        <h1 class="text-center">Book Details</h1>
+
+        <div id="book-details" class="mt-4"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var params = new URLSearchParams(window.location.search);
+            var isbn = params.get('isbn');
+
+            if (isbn) {
+                $.ajax({
+                    url: `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.totalItems > 0) {
+                            var book = response.items[0];
+                            var bookInfo = book.volumeInfo;
+                            var bookHtml = `<div class="card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="${bookInfo.imageLinks.thumbnail}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${bookInfo.title}</h5>
+                                            <p class="card-text">Author: ${bookInfo.authors.join(', ')}</p>
+                                            <p class="card-text">Publisher: ${bookInfo.publisher}</p>
+                                            <p class="card-text">Published Date: ${bookInfo.publishedDate}</p>
+                                            <p class="card-text">Description: ${bookInfo.description || 'No description available'}</p>
+                                            <a href="${bookInfo.infoLink}" target="_blank" class="btn btn-secondary">More Info</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                            $('#book-details').html(bookHtml);
+                        } else {
+                            $('#book-details').html('<p>No details found for this book.</p>');
+                        }
+                    },
+                    error: function() {
+                        $('#book-details').html('<p>Error fetching book details.</p>');
+                    }
+                });
+            } else {
+                $('#book-details').html('<p>No ISBN provided.</p>');
+            }
+        });
+
+$("#go-back").click(function() {
+    window.location.href = "index.html";
+});
+    </script>
+</body>
+</html>
