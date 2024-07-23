@@ -234,4 +234,5 @@ $("#clear-searches").click(function() {
   displayPreviousSearches();
 });
 
+
 });
